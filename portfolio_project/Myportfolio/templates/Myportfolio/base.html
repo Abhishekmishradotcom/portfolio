@@ -1,0 +1,228 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Abhishek Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'Myportfolio/css/style.css' %}" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h2>Abhishek Mishra</h2>
+      <ul>
+        <li class="nav-links"><a href="/">Home</a></li>
+        <li class="nav-links"><a href="#about">About</a></li>
+        <li class="nav-links"><a href="#portfolio">Portfolio</a></li>
+        <li class="nav-links"><a href="#Contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <p class="badge">✨ Ready to Innovate</p>
+
+      <h1>
+        Full Stack <br />
+        <span>Developer</span>
+      </h1>
+
+      <h3>
+        <span id="typing-text"></span>
+      </h3>
+
+      <p class="desc">
+        Enhancing digital experiences that are smooth, scalable, and made to
+        impress.
+      </p>
+
+      <div class="skills">
+        <span class="hov">React</span>
+        <span class="hov">Javascript</span>
+        <span class="hov">Node.js</span>
+        <span class="hov">PostgreSQL</span>
+      </div>
+
+      <div class="buttons">
+        <button class="data"><a href="#about">Projects</a></button>
+        <button class="data"><a href="#Contact">Contact</a></button>
+      </div>
+
+      <div class="social-icons">
+        <!-- GitHub -->
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">
+          <div class="icon">
+            <i class="fab fa-github"></i>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://www.linkedin.com/in/abhishek-mishra-04ab74329/"
+          target="_blank"
+        >
+          <div class="icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </a>
+
+        <!-- Instagram (optional) -->
+        <a href="https://instagram.com/YOUR_USERNAME" target="_blank">
+          <div class="icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <section id="about" class="about">
+      <h2 class="about-title">About Me</h2>
+
+      <p class="about-text">
+        Hello, I'm <b>Abhishek Mishra</b> passionate about building smart and
+        scalable web & mobile applications. I've completed a full-stack
+        development course and constantly explore new technologies to refine my
+        skills. Focused on continuous learning, I aim to transition into the IT
+        industry by 2027 and eventually move towards AI and data science.
+      </p>
+
+      <div class="about-buttons">
+        <a href="#" class="btn-primary">📄 Download CV</a>
+        <a href="#projects" class="btn-outline"> &lt;/&gt; View Projects</a>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="icon">💻</div>
+          <h3>{{ projects|length }}</h3>
+          <h4>Total Projects</h4>
+          <p>Innovative web & mobile solutions crafted</p>
+        </div>
+
+        <div class="about-card">
+          <div class="icon">🏅</div>
+          <h3>3</h3>
+          <h4>Certificates</h4>
+          <p>Professional skills validated</p>
+        </div>
+
+        <div class="about-card">
+          <div class="icon">🌐</div>
+          <h3>3</h3>
+          <h4>Years of Experience</h4>
+          <p>Continuous learning journey</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <h1 class="title">Portfolio Showcase</h1>
+        <p class="subtitle">
+          Explore my journey through projects, certifications, and technical
+          expertise. Each section represents a milestone in my continuous
+          learning path.
+        </p>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab active">Projects</button>
+          <button class="tab">Certificates</button>
+          <button class="tab">Tech Stack</button>
+        </div>
+
+        <!-- Project Cards -->
+        <div class="card-wrapper">
+          {% for project in projects %}
+          <div class="card">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+
+            <div class="card-footer">
+              {% if project.project_url %}
+              <a
+                href="{{ project.project_url }}"
+                target="_blank"
+                class="live-demo"
+              >
+                Live Demo ↗
+              </a>
+
+              <a
+                href="{{ project.project_url }}"
+                target="_blank"
+                class="details-btn"
+              >
+                Details →
+              </a>
+              {% endif %}
+            </div>
+          </div>
+
+          {% empty %}
+          <p>No projects found.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="Contact">
+      <h2 class="contact-title">Contact Me</h2>
+      <p class="contact-subtitle">
+        Got a question? Send me a message, and I'll get back to you soon.
+      </p>
+
+      <div class="contact-card">
+        <h3 class="card-heading">Get in Touch</h3>
+        <p class="card-subtext">
+          Have something to discuss? Send me a message and let's talk.
+        </p>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+
+          <button type="submit" class="send-btn">✈ Send Message</button>
+        </form>
+
+        <div class="divider"></div>
+
+        <div class="social-section">
+          <h4>Connect With Me</h4>
+          <div class="social-icons">
+         <a href="www.google.com">
+          <div class="icon">
+            <i class="fab fa-github"></i>
+          </div></a>
+          <a href="https://www.linkedin.com/in/abhishek-mishra-04ab74329/" target="_blank">
+          <div class="icon">
+            <i class="fab fa-linkedin-in">
+            </i>
+          </div></a>
+          <a href="www.google.com">
+          <div class="icon">
+            <i class="fab fa-instagram"></i>
+          </div></a>
+        </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© 2025 All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'Myportfolio/js/typing.js' %}"></script>
+  </body>
+</html>
