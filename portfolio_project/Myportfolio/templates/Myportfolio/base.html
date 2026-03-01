@@ -186,10 +186,19 @@
           Have something to discuss? Send me a message and let's talk.
         </p>
 
-        <form class="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" rows="5" required></textarea>
+        <form class="contact-form" method="POST" action="{% url 'contact' %}">
+          {% csrf_token %}
+
+          <input type="text" name="name" placeholder="Your Name" required />
+
+          <input type="email" name="email" placeholder="Your Email" required />
+
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
 
           <button type="submit" class="send-btn">✈ Send Message</button>
         </form>
@@ -199,24 +208,26 @@
         <div class="social-section">
           <h4>Connect With Me</h4>
           <div class="social-icons">
-         <a href="www.google.com">
-          <div class="icon">
-            <i class="fab fa-github"></i>
-          </div></a>
-          <a href="https://www.linkedin.com/in/abhishek-mishra-04ab74329/" target="_blank">
-          <div class="icon">
-            <i class="fab fa-linkedin-in">
-            </i>
-          </div></a>
-          <a href="www.google.com">
-          <div class="icon">
-            <i class="fab fa-instagram"></i>
-          </div></a>
-        </div>
+            <a href="www.google.com">
+              <div class="icon">
+                <i class="fab fa-github"></i></div
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/abhishek-mishra-04ab74329/"
+              target="_blank"
+            >
+              <div class="icon">
+                <i class="fab fa-linkedin-in"> </i></div
+            ></a>
+            <a href="www.google.com">
+              <div class="icon">
+                <i class="fab fa-instagram"></i></div
+            ></a>
+          </div>
         </div>
       </div>
     </section>
-    <hr>
+    <hr />
     <footer class="footer">
       <div class="footer-container">
         <p>© 2025 All Rights Reserved.</p>

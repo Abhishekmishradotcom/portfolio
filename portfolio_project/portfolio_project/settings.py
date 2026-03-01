@@ -22,11 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-if6nr1b)+n7%nzf+%6r36kdvnu_ol=ig81+m589)_hz_!6fq+s'
-
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY="djangoproject@2026_secure_key_Abhishek"
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['.onrender.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Myportfolio',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'de1f1bgj8',
+    'API_KEY': '719414213275972',
+    'API_SECRET': 'nbhTijstkgw9xaGjr2mpB7SA2cg',
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
